@@ -54,6 +54,13 @@ encoders["urban_rural"].fit(urban_rural_options)
 st.title("Auto Insurance Churn Prediction App")
 st.subheader("Logistic Regression Prototype Based on Synthetic Canadian Auto Insurance Data")
 
+st.markdown("""
+### 📊 About This App
+This application predicts customer churn risk in the Canadian auto insurance industry using a Logistic Regression model trained on a synthetic dataset.
+
+It helps identify high-risk customers and supports proactive retention strategies.
+""")
+
 st.write(
     "Enter customer details below to estimate churn risk and support proactive retention decisions."
 )
@@ -131,6 +138,13 @@ if st.button("Predict Churn Risk"):
     st.write(f"**Risk Level:** {risk}")
     st.write(f"**Suggested Action:** {action}")
 
+    st.markdown("""
+### 💡 Business Insight
+Customers with high premium increases, low satisfaction, and low loyalty are significantly more likely to churn.
+
+Proactive engagement and pricing strategies can reduce churn risk.
+""")
+
     # ---------------------------------
     # Model driver view (static)
     # ---------------------------------
@@ -195,6 +209,10 @@ if st.button("Predict Churn Risk"):
     ax2.set_ylabel("Feature")
     st.pyplot(fig2)
 
+    st.caption(
+        "Positive (red) values increase churn risk, while negative (green) values reduce it for this specific customer."
+    )
+
     # ---------------------------------
     # Visual business alert
     # ---------------------------------
@@ -210,4 +228,7 @@ if st.button("Predict Churn Risk"):
 # ---------------------------------
 st.caption(
     "This prototype is based on a synthetic dataset and is intended for academic demonstration purposes only."
+)
+st.caption(
+    "Developed by Nnamdi Onu, Tsz Yan Chan, Fisayo Adeyinka, Adedoyin Osokoya | Seneca Business Analytics Capstone Project"
 )
