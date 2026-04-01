@@ -3,9 +3,40 @@ import pandas as pd
 import numpy as np
 import pickle
 import matplotlib.pyplot as plt
+from io import BytesIO
+
+from sklearn.preprocessing import LabelEncoder
 
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
+
+# ---------------------------------
+# PDF generation function
+# ---------------------------------
+def generate_pdf(probability, risk_level, recommendation, customer_data):
+    buffer = BytesIO()
+    doc = SimpleDocTemplate(buffer)
+    styles = getSampleStyleSheet()
+
+    content = []
+    content.append(Paragraph("Customer Churn Risk Report", styles["Title"]))
+    content.append(Spacer(1, 12))
+
+    content.append(Paragraph(f"Churn Probability: {probability:.2%}", styles["Normal"]))
+    content.append(Paragraph(f"Risk Level: {risk_level}", styles["Normal"]))
+    content.append(Paragraph(f"Recommendation: {recommendation}", styles["Normal"]))
+    content.append(Spacer(1, 12))
+
+    content.append(Paragraph("Customer Inputs:", styles["Heading2"]))
+    content.append(Spacer(1, 8))
+
+    for key, value in customer_data.items():
+        content.append(Paragraph(f"{key}: {value}", styles["Normal"]))
+
+    doc.build(content)
+    buffer.seek(0)
+    return buffer
+
 
 # ---------------------------------
 # Page setup
@@ -148,6 +179,30 @@ Proactive engagement and pricing strategies can reduce churn risk.
 """)
 
     # ---------------------------------
+    # PDF download
+    # ---------------------------------
+    customer_data = {
+        "Province": province_input,
+        "Age Group": age_group_input,
+        "Income Band": income_band_input,
+        "Urban/Rural": urban_rural_input,
+        "Years with Company": years_with_company_input,
+        "Claims in Last 3 Years": claim_last_3years_input,
+        "Premium Increase (%)": premium_increase_pct_input,
+        "Satisfaction Score": satisfaction_input,
+        "Loyal Customer": is_loyal_customer_input
+    }
+
+    pdf_file = generate_pdf(probability, risk, action, customer_data)
+
+    st.download_button(
+        label="📄 Download Customer Risk Report (PDF)",
+        data=pdf_file,
+        file_name="customer_churn_report.pdf",
+        mime="application/pdf"
+    )
+
+    # ---------------------------------
     # Model driver view (static)
     # ---------------------------------
     st.write("## Model Driver View")
@@ -231,6 +286,7 @@ Proactive engagement and pricing strategies can reduce churn risk.
 st.caption(
     "This prototype is based on a synthetic dataset and is intended for academic demonstration purposes only."
 )
+
 st.markdown("""
 ---
 <center>
