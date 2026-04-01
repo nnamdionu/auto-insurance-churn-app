@@ -4,11 +4,13 @@ import numpy as np
 import pickle
 import matplotlib.pyplot as plt
 from io import BytesIO
+from datetime import datetime
 
 from sklearn.preprocessing import LabelEncoder
 
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
+
 
 # ---------------------------------
 # PDF generation function
@@ -19,7 +21,15 @@ def generate_pdf(probability, risk_level, recommendation, customer_data):
     styles = getSampleStyleSheet()
 
     content = []
-    content.append(Paragraph("Customer Churn Risk Report", styles["Title"]))
+    content.append(Paragraph("Auto Insurance Customer Churn Report", styles["Title"]))
+    content.append(Paragraph("Seneca Business Analytics Capstone Project", styles["Normal"]))
+    content.append(Spacer(1, 8))
+    content.append(
+        Paragraph(
+            f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+            styles["Normal"]
+        )
+    )
     content.append(Spacer(1, 12))
 
     content.append(Paragraph(f"Churn Probability: {probability:.2%}", styles["Normal"]))
@@ -27,7 +37,7 @@ def generate_pdf(probability, risk_level, recommendation, customer_data):
     content.append(Paragraph(f"Recommendation: {recommendation}", styles["Normal"]))
     content.append(Spacer(1, 12))
 
-    content.append(Paragraph("Customer Inputs:", styles["Heading2"]))
+    content.append(Paragraph("Customer Inputs", styles["Heading2"]))
     content.append(Spacer(1, 8))
 
     for key, value in customer_data.items():
@@ -196,7 +206,7 @@ Proactive engagement and pricing strategies can reduce churn risk.
     pdf_file = generate_pdf(probability, risk, action, customer_data)
 
     st.download_button(
-        label="📄 Download Customer Risk Report (PDF)",
+        label="📄 Download Executive Report (PDF)",
         data=pdf_file,
         file_name="customer_churn_report.pdf",
         mime="application/pdf"
