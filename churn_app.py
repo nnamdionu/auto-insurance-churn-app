@@ -232,7 +232,7 @@ st.caption(
 st.markdown("""
 ---
 <center>
-Developed by <b>Nnamdi Onu</b>, Tsz Yan Chan, Fisayo Adeyinka, Adedoyin Osokoya<br>
+Developed by <b>Nnamdi Onu</b>, <b>Tsz Yan Chan</b>, <b>Fisayo Adeyinka</b>, <b>Adedoyin Osokoya</b><br>
 Seneca Business Analytics Capstone Project
 </center>
 """, unsafe_allow_html=True)
