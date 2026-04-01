@@ -230,5 +230,6 @@ st.caption(
     "This prototype is based on a synthetic dataset and is intended for academic demonstration purposes only."
 )
 st.caption(
-    "Developed by Nnamdi Onu, Tsz Yan Chan, Fisayo Adeyinka, Adedoyin Osokoya | Seneca Business Analytics Capstone Project"
+    "Developed by Nnamdi Onu, Tsz Yan Chan, Fisayo Adeyinka, Adedoyin Osokoya"
 )
+st.caption("Seneca Business Analytics Capstone Project")
