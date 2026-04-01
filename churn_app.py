@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
-import pickle
-from sklearn.preprocessing import LabelEncoder
-import matplotlib.pyplot as plt
 import numpy as np
+import pickle
+import matplotlib.pyplot as plt
+
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
 
 # ---------------------------------
 # Page setup
