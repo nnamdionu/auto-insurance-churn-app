@@ -229,7 +229,10 @@ Proactive engagement and pricing strategies can reduce churn risk.
 st.caption(
     "This prototype is based on a synthetic dataset and is intended for academic demonstration purposes only."
 )
-st.caption(
-    "Developed by Nnamdi Onu, Tsz Yan Chan, Fisayo Adeyinka, Adedoyin Osokoya"
-)
-st.caption("Seneca Business Analytics Capstone Project")
+st.markdown("""
+---
+<center>
+Developed by <b>Nnamdi Onu</b>, Tsz Yan Chan, Fisayo Adeyinka, Adedoyin Osokoya<br>
+Seneca Business Analytics Capstone Project
+</center>
+""", unsafe_allow_html=True)
