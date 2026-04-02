@@ -12,6 +12,12 @@ This project goes beyond prediction by providing **explainable insights**, **bus
 
 ---
 
+## 📸 App Preview
+
+![App Preview](./app-preview.png)
+
+---
+
 ## 📊 Project Overview
 
 Customer churn is a major challenge in the auto insurance industry. This application helps identify customers at risk of leaving and supports proactive retention strategies.
