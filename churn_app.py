@@ -37,7 +37,7 @@ def generate_pdf(probability, risk_level, recommendation, customer_data):
     content.append(Paragraph(f"Recommendation: {recommendation}", styles["Normal"]))
     content.append(Spacer(1, 12))
 
-    content.append(Paragraph("Customer Inputs", styles["Heading2"]))
+    content.append(Paragraph("Customer Profile Summary", styles["Heading2"]))
     content.append(Spacer(1, 8))
 
     for key, value in customer_data.items():
@@ -120,7 +120,13 @@ years_with_company_input = st.slider("Years with Company", 0, 14, 2)
 claim_last_3years_input = st.slider("Claims in Last 3 Years", 0, 5, 0)
 premium_increase_pct_input = st.slider("Premium Increase (%)", 0.0, 40.0, 5.0)
 satisfaction_input = st.slider("Satisfaction Score", 1, 10, 7)
-is_loyal_customer_input = st.selectbox("Loyal Customer", [0, 1])
+
+# Loyalty derived from notebook logic
+is_loyal_customer_input = 1 if years_with_company_input >= 3 else 0
+
+st.write(
+    f"**Loyal Customer (derived from tenure):** {'Yes' if is_loyal_customer_input == 1 else 'No'}"
+)
 
 # ---------------------------------
 # Prediction button
@@ -154,6 +160,7 @@ if st.button("Predict Churn Risk"):
     # ---------------------------------
     # Results
     # ---------------------------------
+    st.markdown("### 📊 Customer Risk Summary")
     st.write("## Prediction Result")
 
     if prediction == 1:
@@ -200,7 +207,7 @@ Proactive engagement and pricing strategies can reduce churn risk.
         "Claims in Last 3 Years": claim_last_3years_input,
         "Premium Increase (%)": premium_increase_pct_input,
         "Satisfaction Score": satisfaction_input,
-        "Loyal Customer": is_loyal_customer_input
+        "Loyal Customer": "Yes" if is_loyal_customer_input == 1 else "No"
     }
 
     pdf_file = generate_pdf(probability, risk, action, customer_data)
