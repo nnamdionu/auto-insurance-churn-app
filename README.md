@@ -15,9 +15,8 @@ This project goes beyond prediction by providing **explainable insights**, **bus
 ## 📸 App Preview
 A snapshot of the deployed churn prediction dashboard with business insights and explainable AI.
 <p align="center">
-  <img src="./app-preview.png" width="800"/>
+  <img src="./app-preview.png" width="750"/>
 </p>
-
 
 ## 📊 Project Overview
 
