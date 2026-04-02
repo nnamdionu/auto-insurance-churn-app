@@ -16,7 +16,6 @@ This project goes beyond prediction by providing **explainable insights**, **bus
 
 ![App Preview](./app-preview.png)
 
----
 
 ## 📊 Project Overview
 
