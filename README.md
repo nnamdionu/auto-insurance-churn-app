@@ -72,6 +72,17 @@ The model is trained on a **synthetic dataset of 10,000 Canadian auto insurance 
 
 ---
 
+---
+
+## 💡 What Makes This Project Unique
+
+- Combines **machine learning + business strategy**
+- Provides **explainable AI insights**, not just predictions
+- Includes a **downloadable executive report (PDF)** for real-world use
+- Designed to simulate **actual insurance industry decision-making**
+
+---
+
 ## 🛠️ Tech Stack
 
 - Python  
