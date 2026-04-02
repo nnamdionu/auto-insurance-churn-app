@@ -72,8 +72,6 @@ The model is trained on a **synthetic dataset of 10,000 Canadian auto insurance 
 
 ---
 
----
-
 ## 💡 What Makes This Project Unique
 
 - Combines **machine learning + business strategy**
