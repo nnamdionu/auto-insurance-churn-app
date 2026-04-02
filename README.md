@@ -14,7 +14,9 @@ This project goes beyond prediction by providing **explainable insights**, **bus
 
 ## 📸 App Preview
 
-![App Preview](./app-preview.png)
+<p align="center">
+  <img src="./app-preview.png" width="800"/>
+</p>
 
 
 ## 📊 Project Overview
